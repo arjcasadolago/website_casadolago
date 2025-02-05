@@ -145,10 +145,17 @@
     .about-us {
         flex-direction: column;
         padding: 1.5rem 1rem;
+        align-items: flex-start; /* Align text to the top */
+    }
+
+    .about-text {
+        order: -1; /* Move text to the top */
     }
 
     .about-image {
+        order: 1; /* Move image to the bottom */
         margin-top: 1rem;
+        text-align: center;
     }
 
     .instructor-list {
