@@ -40,22 +40,20 @@ nav a:hover {
     color: var(--primary-color);
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+/* Hamburger Menu Toggle */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: all 0.3s ease;
+.hamburger.active div:nth-child(2) {
+    opacity: 0; /* Hide the middle bar */
 }
 
-/* Mobile Navigation */
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Improved Mobile Navigation */
 .mobile-nav {
     display: none;
     flex-direction: column;
@@ -66,16 +64,48 @@ nav a:hover {
     background-color: #8890ff;
     text-align: center;
     z-index: 999;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;  /* Prevent content overflow */
+    max-height: 0;      /* Collapsed by default */
+}
+
+.mobile-nav.active {
+    display: flex;
+    max-height: 500px;  /* Expand when active */
 }
 
 .mobile-nav a {
     padding: 1rem;
     border-top: 1px solid #ffffff55;
+    color: white;  /* Ensure text is visible */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
-.mobile-nav a:last-child {
-    border-bottom: 1px solid #ffffff55;
+.mobile-nav a:hover {
+    background-color: #6a75e1;  /* Hover effect */
 }
+
+nav ul {
+    display: flex; /* Default for larger screens */
+}
+
+/* Hide regular nav and show hamburger on mobile */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide default nav */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: none; /* Ensure hidden by default */
+    }
+}
+
 
 /* Logo */
 .logo img {
