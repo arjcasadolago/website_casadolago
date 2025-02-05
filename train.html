@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martial Arts Academy</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages/getstarted.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap" rel="stylesheet"> <!-- API to retrieve font from Google Fonts -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="Assets/images/logo_CdL.png" alt="Martial Arts Academy Logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+              <li><a href="train.html">Treina Connsco</a></li>  
+              <li><a href="timetable.html">Horário</a></li>  
+              <li><a href="about.html">Sobre Nós</a></li>       
+              <li><a href="community.html">Communidade</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+<!-- Get Started Page Content -->
+<div class="get-started">
+    <div class="cta-section">
+      <h1>Começa Hoje!</h1>
+      <p>Vem experimentar uma das nossas aulas! Preenche a informação em baixo, e nós entraremos em contacto consigo para agendar a primeira aula!</p>
+      <form class="get-started-form" action="https://formspree.io/f/xvggjvnr" method="POST" >
+        <!-- Name and Email Fields -->
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+  
+        <!-- Class Selection -->
+        <div class="class-selection">
+          <label>
+            <input type="radio" name="class_type" value="Adulto" required /> Adulto
+          </label>
+          <label>
+            <input type="radio" name="class_type" value="Kids" required /> Kids
+          </label>
+        </div>
+        <!-- Honeypot Field -->
+        <input type="text" name="_gotcha" style="display: none;">
+        <!-- Submit Button -->
+        <button type="submit">Agendar</button>
+      </form>
+    </div>
+  </div>
+
+
+<!-- Footer Section (Contact & Map) -->
+<footer id="contact">
+    <div class="footer-container">
+        <div class="contact-info">
+            <div class="info-header">
+                <img src="Assets/images/logo_CdL.png" alt="Logo" class="footer-logo">
+                <hr>
+            </div>
+            <p><span class="icon"><img src="Assets/images/envelope_icon_footer.png" alt="Email Icon"></span> Email: arjcasadolago@gmail.com</p>
+            <p><span class="icon"><img src="Assets/images/phone_icon_footer.png" alt="Phone Icon"></span> Phone: +351 913 901 120</p>
+            <a href="https://www.instagram.com/arj_casa_do_lago/" target="_blank" class="instagram-link">
+                <img src="Assets/images/Symbol-Instagram.png" alt="Instagram">
+            </a>
+        </div>
+        <div class="map">
+          <!-- Replace Embed Google Maps with Screenshot -->
+        <img src="Assets\images\map_screenshot.jpg" alt="Map Screenshot">
+      </div>
+    </div>
+</footer>   
+    
+<body>
+</html>
