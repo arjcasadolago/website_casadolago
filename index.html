@@ -16,45 +16,38 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/pages/homepage.css">     
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap" rel="stylesheet"> <!-- API to retrieve font from Google Fonts -->
-    <script src="css\hamburger_toggle.js"></script>
+    <script src="js/hamburger_toggle.js"></script> 
 
 </head>
 <body>
     
-<!-- Header Section -->
-<header>
-    <div class="header-container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="Assets/images/logo_CdL.png" alt="Martial Arts Academy Logo">
-            </a>
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Assets/images/logo_CdL.png" alt="Martial Arts Academy Logo">
+                </a>
+            </div>
+    
+            <!-- Hamburger Icon (moved to the right) -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="train.html">Treina Connosco</a></li>
-                <li><a href="timetable.html">Horário</a></li>
-                <li><a href="about.html">Sobre Nós</a></li>
-                <li><a href="community.html">Comunidade</a></li>
-            </ul>
+    
+        <!-- Curtain Menu -->
+        <nav class="curtain-menu" id="curtain-menu">
+            <div class="curtain-content">
+                <a href="train.html">Treina Connosco</a>
+                <a href="timetable.html">Horário</a>
+                <a href="about.html">Sobre Nós</a>
+                <a href="community.html">Comunidade</a>
+            </div>
         </nav>
-    </div>
-</header>
-
-
-<!-- External JavaScript for Hamburger Menu Toggle -->
-<script src="css/hamburger_toggle.js.js"></script>
-
-
-<!-- JavaScript Link -->
-<script src="script.js"></script>
-
+    </header>
 
     <!-- Hero Section -->
     <section id="hero">
