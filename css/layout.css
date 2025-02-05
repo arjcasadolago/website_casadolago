@@ -9,30 +9,75 @@ header {
     background-color: #8890ff;
     color: white;
     padding: 0.5rem 1rem;
+    position: relative; /* For positioning the mobile menu */
 }
 
-header ul {
+/* Navigation Styles */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-header li {
-    margin: 0 2rem;
+nav li {
+    margin: 0 1rem;
 }
 
-header a {
+nav a {
     color: var(--secondary-color);
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
-header a:hover {
+nav a:hover {
     color: var(--primary-color);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #8890ff;
+    text-align: center;
+    z-index: 999;
+}
+
+.mobile-nav a {
+    padding: 1rem;
+    border-top: 1px solid #ffffff55;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: 1px solid #ffffff55;
+}
+
+/* Logo */
 .logo img {
     height: 50px;
     width: auto;
@@ -41,42 +86,40 @@ header a:hover {
 
 /* Footer Section */
 footer {
-    background-color: var(--dark-gray); /* Dark background for contrast */
-    color: white; /* White text for readability */
-    padding: 2rem 1rem; /* Adds spacing around the footer */
-    text-align: center; /* Center-aligns content */
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Distributes elements evenly */
-    align-items: flex-start; /* Aligns items at the top */
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    gap: var(--default-padding); /* Adds space between flex items */
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--default-padding);
 }
 
 .contact-info {
-    flex: 1; /* Allows the contact info to take up space proportionally */
-    text-align: left; /* Aligns contact details to the left */
+    flex: 1;
+    text-align: left;
 }
 
 .contact-info p {
     display: flex;
-    align-items: center; /* Aligns text and icon vertically */
-    gap: 10px; /* Space between icon and text */
-    font-family: var(--font-secondary); /* Fun and approachable font */
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-secondary);
     font-size: 1.2rem;
     margin: 0.5rem 0;
 }
 
-/* Icon Styling */
 .icon img {
-    width: 24px; /* Icon size */
-    height: auto; /* Maintains aspect ratio */
+    width: 24px;
+    height: auto;
     margin-right: 10px;
 }
 
-/* Logo and Horizontal Line */
 .info-header {
     text-align: center;
     margin-bottom: 20px;
@@ -97,9 +140,8 @@ hr {
     margin: 0 auto;
 }
 
-/* Map Styling */
 .map {
-    flex: 2; /* Map takes up more space */
+    flex: 2;
     max-width: 700px;
     height: 350px;
     border-radius: 8px;
@@ -110,12 +152,11 @@ hr {
 }
 
 .map img {
-    width: 100%; /* Make sure the image fills the width */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: cover; /* Ensure it covers the entire space without stretching */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-/* Instagram Link Styling */
 .instagram-link img {
     width: 40px;
     height: auto;
@@ -123,21 +164,53 @@ hr {
     margin-top: 1rem;
 }
 
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide default nav */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .contact-info,
-    .map {
-        width: 100%; /* Each section takes full width */
+    .contact-info, .map {
+        width: 100%;
     }
 
     .map {
         height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .map {
+        height: 250px;
     }
 }
