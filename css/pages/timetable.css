@@ -1,0 +1,80 @@
+/* Timetable Page */
+
+/* Container */
+.timetable-container {
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
+}
+
+/* Timetable Table */
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    text-align: center;
+    font-family: var(--font-secondary);
+}
+
+.timetable th,
+.timetable td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+}
+
+/* Timetable Heading */
+h1 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Header Styling */
+.timetable th {
+    background-color: #8890ff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+/* Time Column */
+.timetable th:first-child,
+.timetable td:first-child {
+    background-color: #e0e0e0;
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
+/* Class Color Coding */
+.timetable td.kids {
+    background-color: #e6f7ff; /* Light blue */
+    color: #0050b3; /* Dark blue */
+}
+
+.timetable td.adultos,
+.timetable td[class*="boxe"],
+.timetable td[class*="pernas"] {
+    background-color: #ffe7e6; /* Light pink */
+    color: var(--primary-color);
+}
+
+/* Hover Effect */
+.timetable td:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .timetable th,
+    .timetable td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}

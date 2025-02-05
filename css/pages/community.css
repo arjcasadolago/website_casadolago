@@ -1,0 +1,116 @@
+/* Community Page */
+
+/* Overall Page Structure */
+.community-page {
+  margin: 2rem auto;
+  max-width: var(--max-container-width);
+  padding: var(--default-padding);
+  background-color: #fff;
+}
+
+/* Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--default-padding);
+  align-items: start;
+}
+
+/* Community Introduction Section */
+.community-intro {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  color: var(--dark-gray);
+  line-height: var(--body-line-height);
+}
+
+.community-intro p {
+  margin-bottom: 1rem;
+}
+
+.community-intro .cta-button {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.community-intro .cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.community-intro .buttons {
+  margin-top: 1.5rem;
+}
+
+.community-intro .secondary-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--light-gray);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--dark-gray);
+  margin: 0 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.community-intro .secondary-button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Media Section */
+.media-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-placeholder img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.image-placeholder img:hover {
+  border-color: var(--primary-color);
+}
+
+.play-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.play-button:hover {
+  color: var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .content-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .community-intro .cta-button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+  }
+
+  .image-placeholder img {
+      max-width: 100%;
+  }
+}
