@@ -145,17 +145,28 @@
     .about-us {
         flex-direction: column;
         padding: 1.5rem 1rem;
-        align-items: flex-start; /* Align text to the top */
+        align-items: center; /* Center content for better aesthetics */
     }
 
-    .about-text {
-        order: -1; /* Move text to the top */
+    .about-text, .about-image {
+        width: 100%; /* Full width for both sections */
+        text-align: center; /* Center text for uniform look */
+        padding: 0.5rem; /* Reduce padding for compactness */
     }
 
-    .about-image {
-        order: 1; /* Move image to the bottom */
-        margin-top: 1rem;
-        text-align: center;
+    .about-image img {
+        width: 90%; /* Image scales better on small screens */
+        max-width: none; /* Remove max-width restriction */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .about-text h2 {
+        font-size: 2rem; /* Slightly larger for better readability */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Standardize font size */
+        line-height: 1.5; /* Improve readability */
     }
 
     .instructor-list {
@@ -164,21 +175,22 @@
     }
 
     .instructor {
-        max-width: 90%; /* Reduce max width for better fit */
+        max-width: 90%;
     }
 }
 
 @media (max-width: 480px) {
-    .hero img {
-        max-height: 250px; /* Adjust image height for small screens */
-    }
-
-    .about-text h2, .instructors h2 {
+    .about-text h2 {
         font-size: 1.8rem;
     }
 
     .about-text p {
         font-size: 0.95rem;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: none;
     }
 
     .instructor img {
@@ -192,12 +204,12 @@
         font-size: 0.9rem;
     }
 
+    .about-image img {
+        width: 100%;
+    }
+
     .instructor img {
         width: 100px;
         height: 100px;
     }
-
-    .hero img {
-        max-height: 200px; /* Further adjust for very small screens */
-    }
-}
+} 
