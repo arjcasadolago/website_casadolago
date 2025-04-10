@@ -22,11 +22,11 @@ exports.handler = async (event) => {
         <p><strong>${name}</strong> (${email}) demonstrou interesse numa aula de <em>${classType}</em>.</p>
       `,
         });
-
+        console.log("User email submitted:", email);
         // Send confirmation to user
         await resend.emails.send({
             from: 'onboarding@resend.dev',
-            to: email,
+            to: "manuelcortinhasc@gmail.com",
             subject: 'Obrigado pelo teu interesse nas aulas!',
             html: `
         <p>Olá ${name},</p>
