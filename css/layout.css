@@ -1,0 +1,239 @@
+/* Layout Styles */
+/* Header */
+header {
+    background-color: #8890ff;
+    padding: 0.5rem 1rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Logo on the left, hamburger on the right */
+    align-items: center;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's clickable */
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Curtain Menu */
+.curtain-menu {
+    position: fixed;
+    top: -100vh; /* Hidden above the screen initially */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(34, 34, 34, 0.95); /* Darker shade with less transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.5s ease-in-out; /* Smooth drop-down */
+    z-index: 1000;
+}
+
+
+/* Show Curtain Menu */
+.curtain-menu.active {
+    top: 0; /* Slide down when active */
+}
+
+/* Curtain Content */
+.curtain-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+/* Navigation Links */
+.curtain-content a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.curtain-content a:hover {
+    color: #6a75e1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Visible on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .curtain-menu {
+        display: flex; /* Ensure curtain menu is visible on larger screens */
+    }
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--dark-gray);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--default-padding);
+}
+
+.contact-info {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.icon img {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.info-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.map {
+    flex: 2;
+    max-width: 700px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.instagram-link img {
+    width: 40px;
+    height: auto;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide default nav */
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-info, .map {
+        width: 100%;
+    }
+
+    .map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+    }
+
+    .map {
+        height: 250px;
+    }
+}

@@ -1,0 +1,215 @@
+/* About Us Page */
+
+/* Hero Section */
+.hero {
+    background-color: var(--light-gray);
+    padding: 0;
+    margin: 0; /* Ensure full-width */
+    width: 100%; /* Stretch edge-to-edge */
+}
+
+.hero img {
+    width: 100%;
+    height: auto; /* Make height responsive */
+    max-height: 400px; /* Limit height for larger screens */
+    object-fit: cover;
+    border-radius: 0; /* Removed rounded corners for full-width effect */
+}
+
+/* About Us Section */
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #fff;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+.about-us .container {
+    display: flex;
+    gap: var(--default-padding);
+    flex-wrap: wrap; /* Enable responsive wrapping */
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+    padding: 1rem;
+}
+
+.about-text h2 {
+    font-family: var(--font-secondary);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: var(--body-line-height);
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+.about-text p strong {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.about-text .learn-more {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary-color);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.about-text .learn-more:hover {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+.about-image img {
+    width: 100%; /* Make image responsive */
+    max-width: 400px;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Instructors Section */
+.instructors {
+    padding: 2rem 1rem;
+    background-color: var(--light-gray);
+}
+
+.instructors h2 {
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.instructor-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--default-padding);
+}
+
+.instructor {
+    flex: 1 1 300px; /* Flexible layout */
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto; /* Center instructors on smaller screens */
+}
+
+.instructor img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.instructor h3 {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+}
+
+/* Utility Adjustments */
+.container {
+    width: 90%;
+    max-width: var(--max-container-width);
+    margin: 0 auto;
+    padding: var(--default-padding);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-us {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        align-items: center; /* Center content for better aesthetics */
+    }
+
+    .about-text, .about-image {
+        width: 100%; /* Full width for both sections */
+        text-align: center; /* Center text for uniform look */
+        padding: 0.5rem; /* Reduce padding for compactness */
+    }
+
+    .about-image img {
+        width: 90%; /* Image scales better on small screens */
+        max-width: none; /* Remove max-width restriction */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .about-text h2 {
+        font-size: 2rem; /* Slightly larger for better readability */
+    }
+
+    .about-text p {
+        font-size: 1rem; /* Standardize font size */
+        line-height: 1.5; /* Improve readability */
+    }
+
+    .instructor-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .instructor {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .instructor img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-text p {
+        font-size: 0.9rem;
+    }
+
+    .about-image img {
+        width: 100%;
+    }
+
+    .instructor img {
+        width: 100px;
+        height: 100px;
+    }
+} 
