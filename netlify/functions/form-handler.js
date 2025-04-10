@@ -11,15 +11,15 @@ exports.handler = async (event) => {
 
     // Email to your team
     await resend.emails.send({
-        from: 'no-reply@yourdomain.com',
-        to: 'your-team@email.com',
+        from: 'onboarding@resend.dev',
+        to: 'arjcasadolago@gmail.com',
         subject: 'Nova Inscrição para Aula',
         html: `<p><strong>${name}</strong> (${email}) demonstrou interesse numa aula de <em>${classType}</em>.</p>`,
     });
 
     // Confirmation email to user (your custom message)
     await resend.emails.send({
-        from: 'no-reply@yourdomain.com',
+        from: 'onboarding@resend.dev',
         to: email,
         subject: 'Obrigado pelo teu interesse nas aulas!',
         html: `
