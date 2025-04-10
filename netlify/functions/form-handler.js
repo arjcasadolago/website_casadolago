@@ -1,36 +1,58 @@
-try {
-    const { name, email, classType } = JSON.parse(event.body);
-    console.log("Form Data Received:", name, email, classType);
+const { Resend } = require('resend');
 
-    // Send to team
-    const teamRes = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'arjcasadolago@gmail.com',
-        subject: 'Nova Inscrição para Aula',
-        html: `<p><strong>${name}</strong> (${email}) demonstrou interesse numa aula de <em>${classType}</em>.</p>`,
-    });
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-    console.log("Team email sent:", teamRes);
+exports.handler = async (event) => {
+    if (event.httpMethod !== 'POST') {
+        return {
+            statusCode: 405,
+            body: 'Method Not Allowed',
+        };
+    }
 
-    // Send to user
-    const userRes = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'manuelcortinhasc@gmail.com',
-        subject: 'Obrigado pelo teu interesse nas aulas!',
-        html: `<p>Olá ${name}, obrigado pelo teu interesse...</p>`,
-        text: `Olá ${name}, obrigado pelo teu interesse!`,
-    });
+    try {
+        const { name, email, classType } = JSON.parse(event.body);
 
-    console.log("User email sent:", userRes);
+        console.log("User email submitted:", email);
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ message: 'Both emails sent successfully' }),
-    };
-} catch (error) {
-    console.error("Something went wrong:", error);
-    return {
-        statusCode: 500,
-        body: JSON.stringify({ error: error.message }),
-    };
-}
+        // Send email to your team
+        const teamRes = await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: 'arjcasadolago@gmail.com',
+            subject: 'Nova Inscrição para Aula',
+            html: `<p><strong>${name}</strong> (${email}) demonstrou interesse numa aula de <em>${classType}</em>.</p>`,
+        });
+
+        console.log("Team email sent:", teamRes);
+
+        // Send confirmation to user
+        const userRes = await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: email,
+            subject: 'Obrigado pelo teu interesse nas aulas!',
+            html: `
+        <p>Olá ${name},</p>
+        <p>Obrigado por mostrares interesse em começar aulas connosco! Estamos entusiasmados por saber de ti.</p>
+        <p>Neste momento, a melhor forma de nos contactares é através do nosso Instagram: <strong>@arj_casa_do_lago</strong>. Podes enviar-nos uma mensagem diretamente lá para conversarmos mais sobre as aulas.</p>
+        <p>Caso não tenhas Instagram, podes sempre contactar-nos através do número <strong>+351 913 901 120</strong>.</p>
+        <p>Aguardamos com expectativa para falar contigo em breve!</p>
+        <p>Melhores cumprimentos,<br/>
+        <strong>Alex Ryu Jitsu Casa do Lago</strong></p>
+      `,
+            text: `Olá ${name}, obrigado por mostrares interesse nas aulas! Contacta-nos via Instagram (@arj_casa_do_lago) ou pelo número +351 913 901 120.`,
+        });
+
+        console.log("User confirmation email sent:", userRes);
+
+        return {
+            statusCode: 200,
+            body: JSON.stringify({ message: 'Both emails sent successfully' }),
+        };
+    } catch (error) {
+        console.error("Email sending failed:", error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ message: 'Failed to send emails.', error: error.message }),
+        };
+    }
+};
